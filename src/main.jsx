@@ -405,7 +405,8 @@ function DualLineChart({ rows }) {
   const ticks = [3, 4.5, 6, 7.5, 9];
 
   return (
-    <svg className="chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Line chart of phone time bands against sleep and fatigue">
+    <div className="chart-scroll" role="region" aria-label="Scrollable screen time chart">
+      <svg className="chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Line chart of phone time bands against sleep and fatigue">
       {ticks.map((tick) => (
         <g key={tick}>
           <line x1={padding.left} x2={width - padding.right} y1={ySleep(tick)} y2={ySleep(tick)} className="grid-line" />
@@ -442,7 +443,8 @@ function DualLineChart({ rows }) {
         <circle cx="102" r="4" className="fatigue-dot" />
         <text x="112" y="4">Fatigue score</text>
       </g>
-    </svg>
+      </svg>
+    </div>
   );
 }
 

@@ -406,6 +406,13 @@ h2 {
   min-height: 280px;
 }
 
+.chart-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
 .grid-line {
   stroke: var(--line);
 }
@@ -554,11 +561,31 @@ th {
 
 @media (max-width: 760px) {
   .app {
-    padding: 18px;
+    padding: 14px;
   }
 
   .hero {
     grid-template-columns: 1fr;
+    gap: 18px;
+    padding-top: 8px;
+  }
+
+  .hero .icon-button {
+    justify-self: start;
+  }
+
+  .control-band {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .control-band label {
+    min-width: 0;
+  }
+
+  select,
+  .icon-button {
+    min-height: 44px;
   }
 
   .kpi-grid {
@@ -573,6 +600,47 @@ th {
   .rank-row {
     grid-template-columns: 1fr;
   }
+
+  .sort-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sort-control select {
+    width: auto;
+    min-width: 144px;
+  }
+
+  .leader-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .leader-metrics {
+    width: 100%;
+    padding-left: 44px;
+    justify-content: flex-start;
+  }
+
+  .chart {
+    width: 560px;
+    max-width: none;
+    min-height: 0;
+  }
+
+  .table-wrap {
+    margin-inline: -14px;
+    padding-inline: 14px;
+    overscroll-behavior-inline: contain;
+  }
+
+  th:first-child,
+  td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: color-mix(in srgb, var(--surface-strong), var(--bg) 12%);
+  }
 }
 
 @media (max-width: 520px) {
@@ -581,17 +649,39 @@ th {
   }
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2.05rem;
+    line-height: 1.02;
   }
 
   .kpi-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .panel,
   .control-band,
   .kpi {
     padding: 14px;
+  }
+
+  .kpi {
+    min-height: 108px;
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .kpi-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .kpi strong {
+    font-size: 1.45rem;
+  }
+
+  .kpi span,
+  .kpi small {
+    font-size: 0.72rem;
   }
 
   .chart-range {
@@ -601,5 +691,15 @@ th {
   .chart-range-value,
   .chart-range input {
     grid-column: 1;
+  }
+
+  .leader-metrics {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
   }
 }
