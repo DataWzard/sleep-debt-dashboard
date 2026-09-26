@@ -1,0 +1,7 @@
+*
+!.gitignore
+!index.html
+!assets/
+!assets/**
+!data/
+!data/**
